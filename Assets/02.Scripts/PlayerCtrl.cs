@@ -31,7 +31,9 @@ public class PlayerCtrl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        anim = GetComponent<Animation>(); //Generic Syntax
+        //anim = this.gameObject.GetComponent("Animation") as Animation
+        //anim = (Animation)this.gameObject.GetComponent("Animation")
     }
 
     // Update is called once per fram

@@ -317,6 +317,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 9.1
   turnSpeed: 200
+  anim: {fileID: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0

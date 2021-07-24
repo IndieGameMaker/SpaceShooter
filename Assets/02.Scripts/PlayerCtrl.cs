@@ -8,6 +8,7 @@ public class PlayerCtrl : MonoBehaviour
     private float v = 0.0f;
 
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,9 +21,12 @@ public class PlayerCtrl : MonoBehaviour
         h = Input.GetAxis("Horizontal"); // -1.0f ~ 0.0f ~ +1.0f
         v = Input.GetAxis("Vertical");   // -1.0f ~ 0.0f ~ +1.0f
 
-        // transform.position += new Vector3(0, 0, 0.1f);
-        transform.Translate(Vector3.forward * 0.1f * v);
-        transform.Translate(Vector3.right * 0.1f * h);
+        Vector3 dir = (Vector3.forward * v) + (Vector3.right * h);
+
+        Debug.Log("dir =" + dir.magnitude);
+        Debug.Log("dir.normalied = " + dir.normalized.magnitude);
+
+        transform.Translate(dir.normalized * 0.1f);
     }
 
 

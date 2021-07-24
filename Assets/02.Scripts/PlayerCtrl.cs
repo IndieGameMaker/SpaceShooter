@@ -17,13 +17,12 @@ public class PlayerCtrl : MonoBehaviour
     // Update is called once per fram
     void Update()
     {
-        // transform.position += new Vector3(0, 0, 0.1f);
-        transform.Translate(Vector3.forward * 0.1f);
-
         h = Input.GetAxis("Horizontal"); // -1.0f ~ 0.0f ~ +1.0f
         v = Input.GetAxis("Vertical");   // -1.0f ~ 0.0f ~ +1.0f
 
-        Debug.Log("h=" + h + "v=" + v);
+        // transform.position += new Vector3(0, 0, 0.1f);
+        transform.Translate(Vector3.forward * 0.1f * v);
+        transform.Translate(Vector3.right * 0.1f * h);
     }
 
 

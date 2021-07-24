@@ -23,8 +23,8 @@ public class PlayerCtrl : MonoBehaviour
 
         Vector3 dir = (Vector3.forward * v) + (Vector3.right * h);
 
-        Debug.Log("dir =" + dir.magnitude);
-        Debug.Log("dir.normalied = " + dir.normalized.magnitude);
+        // Debug.Log("dir =" + dir.magnitude);
+        // Debug.Log("dir.normalied = " + dir.normalized.magnitude);
 
         transform.Translate(dir.normalized * 0.1f);
     }

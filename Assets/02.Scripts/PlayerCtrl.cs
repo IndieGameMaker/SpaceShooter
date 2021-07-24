@@ -14,8 +14,6 @@ using UnityEngine;
 
 */
 
-
-
 public class PlayerCtrl : MonoBehaviour
 {
     private float h = 0.0f;
@@ -26,6 +24,9 @@ public class PlayerCtrl : MonoBehaviour
     public float moveSpeed = 8.0f;
     [Range(100.0f, 200.0f)]
     public float turnSpeed = 200.0f;
+
+    // Animation 컴포넌트를 저장할 변수를 선언
+    public Animation anim;
 
     // Start is called before the first frame update
     void Start()

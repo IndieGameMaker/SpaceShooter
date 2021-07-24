@@ -2,6 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+
+    Animation Type
+
+    Legacy : 가볍다. Code 작성
+
+    Mecanim : Visual Editor(Node) 
+            - Generic : 
+            - Humaniod : 2족 보행(Bipal), 15 Born, Retarggeting
+
+*/
+
+
+
 public class PlayerCtrl : MonoBehaviour
 {
     private float h = 0.0f;

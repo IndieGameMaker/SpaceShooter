@@ -20,7 +20,12 @@ public class PlayerCtrl : MonoBehaviour
 {
     private float h = 0.0f;
     private float v = 0.0f;
+    private float r = 0.0f;
+
+    [Range(5.0f, 20.0f)]
     public float moveSpeed = 8.0f;
+    [Range(100.0f, 200.0f)]
+    public float turnSpeed = 200.0f;
 
     // Start is called before the first frame update
     void Start()

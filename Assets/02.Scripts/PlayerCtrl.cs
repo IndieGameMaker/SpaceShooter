@@ -26,6 +26,8 @@ public class PlayerCtrl : MonoBehaviour
     public float turnSpeed = 200.0f;
 
     // Animation 컴포넌트를 저장할 변수를 선언
+    [HideInInspector]      // Unity Atrributes
+    [System.NonSerialized] // C# Attributes
     public Animation anim;
 
     // Start is called before the first frame update
@@ -34,6 +36,8 @@ public class PlayerCtrl : MonoBehaviour
         anim = GetComponent<Animation>(); //Generic Syntax
         //anim = this.gameObject.GetComponent("Animation") as Animation
         //anim = (Animation)this.gameObject.GetComponent("Animation")
+
+        anim.Play("Idle");
     }
 
     // Update is called once per fram

@@ -12,6 +12,9 @@ using UnityEngine;
             - Generic : 
             - Humaniod : 2족 보행(Bipal), 15 Born, Retarggeting
 
+
+    - Projectile 방식 
+    - Raycasting 
 */
 
 public class PlayerCtrl : MonoBehaviour

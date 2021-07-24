@@ -77,7 +77,6 @@ public class PlayerCtrl : MonoBehaviour
         {
             anim.CrossFade("Idle", 0.3f);
         }
-
     }
 
 

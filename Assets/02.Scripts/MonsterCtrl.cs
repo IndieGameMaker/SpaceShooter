@@ -30,12 +30,29 @@ public class MonsterCtrl : MonoBehaviour
 
         playerTr = GameObject.FindGameObjectWithTag("PLAYER")?.GetComponent<Transform>();
         monsterTr = GetComponent<Transform>();  //  monsterTr = transform;
+
+        StartCoroutine(CheckMonsterState());
     }
 
     IEnumerator CheckMonsterState()
     {
         while (!isDie) // while (isDie == false)
         {
+            float distance = Vector3.Distance(playerTr.position, monsterTr.position);
+
+            if (distance <= attackDist) // 공격사정거리 이내일 경우
+            {
+                state = State.ATTACK;
+            }
+            else if (distance <= traceDist) // 추적사정거리
+            {
+                state = State.TRACE;
+            }
+            else
+            {
+                state = State.IDLE;
+            }
+
             yield return new WaitForSeconds(0.3f);
         }
     }

@@ -888,6 +888,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5225802158615150862, guid: dacf6b4fc79bb482a9a8bdd9c5107ad1, type: 3}
   firePos: {fileID: 1680859561}
   fireSfx: {fileID: 8300000, guid: 641ff25f5da444ddf8874d961a56f0c9, type: 3}
+  muzzleFlash: {fileID: 0}
 --- !u!4 &955860094 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400046, guid: f3cd25b3bf53c4adaaf087d862e435e6, type: 3}
@@ -1167,7 +1168,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.5057034, y: 1}
+    m_SensorSize: {x: 1.730038, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1513,7 +1514,6 @@ GameObject:
   - component: {fileID: 1456126429}
   - component: {fileID: 1456126432}
   - component: {fileID: 1456126431}
-  - component: {fileID: 1456126430}
   m_Layer: 0
   m_Name: MuzzleFlash
   m_TagString: Untagged
@@ -1535,20 +1535,6 @@ Transform:
   m_Father: {fileID: 1680859561}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &1456126430
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1456126428}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &1456126431
 MeshRenderer:
   m_ObjectHideFlags: 0

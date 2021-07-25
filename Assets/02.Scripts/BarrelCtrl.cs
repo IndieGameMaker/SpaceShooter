@@ -55,3 +55,11 @@ public class BarrelCtrl : MonoBehaviour
         audio.PlayOneShot(expSfx, 1.0f);
     }
 }
+
+
+/*
+    하늘 표현 방식
+    1. Skybox (6-Sided Sky)
+    2. Procudural Sky
+    3. Sky Dome
+*/

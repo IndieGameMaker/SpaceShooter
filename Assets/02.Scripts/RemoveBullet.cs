@@ -20,7 +20,8 @@ public class RemoveBullet : MonoBehaviour
 
             // 벡터가 바라보는 방향의 각도를 산출
             Quaternion rot = Quaternion.LookRotation(normal);
-            Instantiate(sparkEffect, pos, rot);
+            GameObject spark = Instantiate(sparkEffect, pos, rot);
+            Destroy(spark, 0.5f);
         }
     }
 }

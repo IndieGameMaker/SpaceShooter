@@ -9,6 +9,7 @@ public class BarrelCtrl : MonoBehaviour
     private int hitCount;
     public Texture[] textures;
     public new MeshRenderer renderer;
+    public GameObject expEffect;
 
     /*
         난수 발생

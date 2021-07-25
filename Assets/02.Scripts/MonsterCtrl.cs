@@ -15,6 +15,9 @@ public class MonsterCtrl : MonoBehaviour
     private Transform playerTr; //주인공 캐릭터의 Transform 컴포넌트를 저장할 변수
     private Transform monsterTr;
 
+    public float attackDist = 2.0f; // 공격 사정거리
+    public float traceDist = 10.0f; // 추적 사정거리
+
     void Start()
     {
         // GameObject playerObj = GameObject.FindGameObjectWithTag("PLAYER");
@@ -24,6 +27,7 @@ public class MonsterCtrl : MonoBehaviour
         // }
 
         playerTr = GameObject.FindGameObjectWithTag("PLAYER")?.GetComponent<Transform>();
+        monsterTr = GetComponent<Transform>();  //  monsterTr = transform;
     }
 
     // Update is called once per frame

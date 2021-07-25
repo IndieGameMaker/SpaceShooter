@@ -10,10 +10,12 @@ public class FireCtrl : MonoBehaviour
     public AudioClip fireSfx;
 
     private new AudioSource audio;
+    public MeshRenderer muzzleFlash;
 
     void Start()
     {
         audio = GetComponent<AudioSource>();
+        muzzleFlash = firePos.GetComponentInChildren<MeshRenderer>();
     }
 
     // Update is called once per frame
@@ -32,3 +34,8 @@ public class FireCtrl : MonoBehaviour
         audio.PlayOneShot(fireSfx, 0.8f);
     }
 }
+
+/*
+    총구화염 (Muzzle Flash)
+*/
+

@@ -1533,6 +1533,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
+  attackDist: 2
+  traceDist: 10
 --- !u!4 &1137640172 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4882308743312232075, guid: a9ee2a8b5a8064050a55c46e7e3a5d30, type: 3}

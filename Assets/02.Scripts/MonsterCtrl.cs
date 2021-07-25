@@ -18,6 +18,8 @@ public class MonsterCtrl : MonoBehaviour
     public float attackDist = 2.0f; // 공격 사정거리
     public float traceDist = 10.0f; // 추적 사정거리
 
+    public bool isDie = false;
+
     void Start()
     {
         // GameObject playerObj = GameObject.FindGameObjectWithTag("PLAYER");
@@ -30,9 +32,11 @@ public class MonsterCtrl : MonoBehaviour
         monsterTr = GetComponent<Transform>();  //  monsterTr = transform;
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator CheckMonsterState()
     {
-
+        while (!isDie) // while (isDie == false)
+        {
+            yield return new WaitForSeconds(0.3f);
+        }
     }
 }

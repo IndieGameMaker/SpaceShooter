@@ -7,15 +7,13 @@ public class FireCtrl : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform firePos;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {
-
+        if (Input.GetMouseButtonDown(0))
+        {
+            // Bullet 동적으로 생성 : Instantiate(프리팹, 위치, 각도)
+            Instantiate(bulletPrefab, firePos.position, firePos.rotation);
+        }
     }
 }

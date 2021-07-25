@@ -42,9 +42,11 @@ public class FireCtrl : MonoBehaviour
         // Texture Offset 변경
         Vector2 offset = new Vector2(Random.Range(0, 2), Random.Range(0, 2)) * 0.5f;
         muzzleFlash.material.mainTextureOffset = offset;
+
         // Texture Scale 변경
         float scale = Random.Range(1.0f, 2.5f);
         muzzleFlash.transform.localScale = Vector3.one * scale;
+
         // Muzzle Flash Z축으로 불규칙하게 회전
         float angle = Random.Range(0, 360); // 오일러 회전각
         muzzleFlash.transform.localRotation = Quaternion.Euler(Vector3.forward * angle);
@@ -53,7 +55,7 @@ public class FireCtrl : MonoBehaviour
         muzzleFlash.enabled = true;
 
         // Waitting.. Sleep....
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.3f);
 
         // MuzzleFlash 비활성화
         muzzleFlash.enabled = false;

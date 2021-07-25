@@ -5,6 +5,7 @@ using UnityEngine;
 public class BarrelCtrl : MonoBehaviour
 {
     private int hitCount;
+    public Texture[] textures;
 
     // Start is called before the first frame update
     void Start()

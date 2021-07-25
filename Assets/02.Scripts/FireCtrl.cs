@@ -33,6 +33,20 @@ public class FireCtrl : MonoBehaviour
         // Bullet 동적으로 생성 : Instantiate(프리팹, 위치, 각도)
         Instantiate(bulletPrefab, firePos.position, firePos.rotation);
         audio.PlayOneShot(fireSfx, 0.8f);
+        StartCoroutine(ShowMuzzleFlash());
+    }
+
+    // 코루틴(Co-routine)
+    IEnumerator ShowMuzzleFlash()
+    {
+        // MuzzleFlash 활성화
+        muzzleFlash.enabled = true;
+
+        // Waitting.. Sleep...
+        yield return new WaitForSeconds(0.2f);
+
+        // MuzzleFlash 비활성화
+        muzzleFlash.enabled = false;
     }
 }
 

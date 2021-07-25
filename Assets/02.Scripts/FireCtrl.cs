@@ -45,7 +45,9 @@ public class FireCtrl : MonoBehaviour
         // Texture Scale 변경
         float scale = Random.Range(1.0f, 2.5f);
         muzzleFlash.transform.localScale = Vector3.one * scale;
-        //muzzleFlash.transform.locaScale = new Vector3(scale, scale, scale);
+        // Muzzle Flash Z축으로 불규칙하게 회전
+        float angle = Random.Range(0, 360); // 오일러 회전각
+        muzzleFlash.transform.localRotation = Quaternion.Euler(Vector3.forward * angle);
 
         // MuzzleFlash 활성화
         muzzleFlash.enabled = true;
@@ -59,6 +61,8 @@ public class FireCtrl : MonoBehaviour
 }
 
 /*
-    총구화염 (Muzzle Flash)
+    Quaternion 쿼터니언 (사원수 x, y, z, w) : 복소수 4차원 벡터
+
+    x->y->z 오일러 회전  => 짐벌락(Gimbal Lock)
 */
 

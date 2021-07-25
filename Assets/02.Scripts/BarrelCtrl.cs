@@ -6,11 +6,12 @@ public class BarrelCtrl : MonoBehaviour
 {
     private int hitCount;
     public Texture[] textures;
+    public new MeshRenderer renderer;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        renderer = GetComponentInChildren<MeshRenderer>();
     }
 
     void OnCollisionEnter(Collision coll)

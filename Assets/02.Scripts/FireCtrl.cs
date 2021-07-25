@@ -42,6 +42,10 @@ public class FireCtrl : MonoBehaviour
         // Texture Offset 변경
         Vector2 offset = new Vector2(Random.Range(0, 2), Random.Range(0, 2)) * 0.5f;
         muzzleFlash.material.mainTextureOffset = offset;
+        // Texture Scale 변경
+        float scale = Random.Range(1.0f, 2.5f);
+        muzzleFlash.material.mainTextureScale = Vector3.one * scale;
+        //muzzleFlash.material.mainTextureScale = new Vector3(scale, scale, scale);
 
         // MuzzleFlash 활성화
         muzzleFlash.enabled = true;

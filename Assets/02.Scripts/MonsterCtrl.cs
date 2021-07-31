@@ -23,6 +23,9 @@ public class MonsterCtrl : MonoBehaviour
 
     public bool isDie = false;
 
+    // 파라메터의 해시값을 미리 추출
+    private int hashTrace = Animator.StringToHash("IsTrace");
+
     void Start()
     {
         playerTr = GameObject.FindGameObjectWithTag("PLAYER")?.GetComponent<Transform>();
@@ -68,7 +71,7 @@ public class MonsterCtrl : MonoBehaviour
                     // 정지
                     agent.isStopped = true;
                     // Idle 애니메이션으로 변경 : Walk --> Idle
-                    anim.SetBool("IsTrace", false);
+                    anim.SetBool(hashTrace, false);
                     break;
 
                 case State.TRACE:
@@ -76,7 +79,7 @@ public class MonsterCtrl : MonoBehaviour
                     agent.isStopped = false;
                     agent.SetDestination(playerTr.position);
                     // Walk 애니메이션으로 변경 : Idle --> Walk
-                    anim.SetBool("IsTrace", true);
+                    anim.SetBool(hashTrace, true);
                     break;
 
                 case State.ATTACK:

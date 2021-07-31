@@ -94,5 +94,11 @@ public class PlayerCtrl : MonoBehaviour
     void PlayerDie()
     {
         Debug.Log("주인공 사망 !!!");
+        // MONSTER 태그로 설정된 몬스터를 배열 저장
+        GameObject[] monsters = GameObject.FindGameObjectsWithTag("MONSTER");
+        foreach (GameObject monster in monsters)
+        {
+            monster.GetComponent<MonsterCtrl>().YouWin();
+        }
     }
 }

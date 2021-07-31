@@ -127,21 +127,25 @@ public class MonsterCtrl : MonoBehaviour
         if (coll.collider.CompareTag("BULLET"))
         {
             Destroy(coll.gameObject);
-            anim.SetTrigger(hashHit);
-            // 총알의 충돌 좌표
-            Vector3 pos = coll.GetContact(0).point;
-            // 법선벡터를 Quaternion 타입으로 변환
-            Quaternion rot = Quaternion.LookRotation(-coll.GetContact(0).normal);
-            // 혈흔 효과 생성
-            GameObject blood = Instantiate(bloodEffect, pos, rot);
-            Destroy(blood, 0.5f);
 
-            // HP 차감
-            hp -= 25.0f;
-            if (hp <= 0.0f)
-            {
-                MonsterDie();
-            }
+        }
+    }
+
+    public void OnDamage(Vector3 pos, Vector3 normal, float damage)
+    {
+        anim.SetTrigger(hashHit);
+
+        // 법선벡터를 Quaternion 타입으로 변환
+        Quaternion rot = Quaternion.LookRotation(normal);
+        // 혈흔 효과 생성
+        GameObject blood = Instantiate(bloodEffect, pos, rot);
+        Destroy(blood, 0.5f);
+
+        // HP 차감
+        hp -= damage;
+        if (hp <= 0.0f)
+        {
+            MonsterDie();
         }
     }
 

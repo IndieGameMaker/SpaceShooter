@@ -93,6 +93,6 @@ public class PlayerCtrl : MonoBehaviour
 
     void PlayerDie()
     {
-
+        Debug.Log("주인공 사망 !!!");
     }
 }

@@ -30,7 +30,10 @@ public class FireCtrl : MonoBehaviour
         {
             Fire();
 
-            if (Physics.Raycast())
+            if (Physics.Raycast(firePos.position, firePos.forward, out hit, 10.0f))
+            {
+                Debug.Log($"hit={hit.collider.name}");
+            }
         }
     }
 

@@ -127,7 +127,6 @@ public class MonsterCtrl : MonoBehaviour
         if (coll.collider.CompareTag("BULLET"))
         {
             Destroy(coll.gameObject);
-
         }
     }
 

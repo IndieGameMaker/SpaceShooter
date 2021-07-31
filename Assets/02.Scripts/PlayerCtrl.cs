@@ -2,21 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/*
-
-    Animation Type
-
-    Legacy : 가볍다. Code 작성
-
-    Mecanim : Visual Editor(Node) 
-            - Generic : 
-            - Humaniod : 2족 보행(Bipal), 15 Born, Retarggeting
-
-
-    - Projectile 방식 
-    - Raycasting 
-*/
-
 public class PlayerCtrl : MonoBehaviour
 {
     private float h = 0.0f;
@@ -33,6 +18,9 @@ public class PlayerCtrl : MonoBehaviour
     [HideInInspector]      // Unity Atrributes
     [System.NonSerialized] // C# Attributes
     public Animation anim;
+
+    private float initHp = 100.0f;  // 주인공 캐릭터의 초기 생명치
+    public float currHp = 100.0f;   // 현재의 생명치 currHp/initHp
 
     // Start is called before the first frame update
     IEnumerator Start()
@@ -86,4 +74,25 @@ public class PlayerCtrl : MonoBehaviour
     }
 
 
+    /*
+        OnCollision~ (Enter, Stay, Exit) : Collider IsTrigger X
+        OnTrigger~ (Enter, Stay, Exit) : Collider IsTrigger O
+    */
+
+    void OnTriggerEnter(Collider coll)
+    {
+        if (coll.CompareTag("PUNCH"))
+        {
+            currHp -= 10.0f;
+            if (currHp <= 0.0f)
+            {
+                PlayerDie();
+            }
+        }
+    }
+
+    void PlayerDie()
+    {
+
+    }
 }

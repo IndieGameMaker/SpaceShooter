@@ -113,6 +113,10 @@ public class MonsterCtrl : MonoBehaviour
         {
             Destroy(coll.gameObject);
             anim.SetTrigger(hashHit);
+            Vector3 pos = coll.GetContact(0).point;
+            Quaternion rot = Quaternion.LookRotation(-coll.GetContact(0).normal);
+            GameObject blood = Instantiate(bloodEffect, pos, rot);
+            Destroy(blood, 0.8f);
         }
     }
 }

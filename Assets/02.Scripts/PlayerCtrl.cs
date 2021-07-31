@@ -98,7 +98,8 @@ public class PlayerCtrl : MonoBehaviour
         GameObject[] monsters = GameObject.FindGameObjectsWithTag("MONSTER");
         foreach (GameObject monster in monsters)
         {
-            monster.GetComponent<MonsterCtrl>().YouWin();
+            // monster.GetComponent<MonsterCtrl>().YouWin();
+            monster.SendMessage("YouWin", SendMessageOptions.DontRequireReceiver);
         }
     }
 }

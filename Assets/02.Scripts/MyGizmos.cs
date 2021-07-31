@@ -13,3 +13,8 @@ public class MyGizmos : MonoBehaviour
         Gizmos.DrawSphere(transform.position, _radius);
     }
 }
+
+/*
+    일반 함수 
+    이벤트 함수
+*/

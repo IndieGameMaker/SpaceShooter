@@ -40,6 +40,9 @@ public class MonsterCtrl : MonoBehaviour
     {
         // 특정 이벤트를 연결할 때 사용
         PlayerCtrl.OnPlayerDie += this.YouWin;
+
+        StartCoroutine(CheckMonsterState());
+        StartCoroutine(MonsterAction());
     }
 
     void OnDisable()
@@ -47,7 +50,7 @@ public class MonsterCtrl : MonoBehaviour
         PlayerCtrl.OnPlayerDie -= this.YouWin;
     }
 
-    void Start()
+    void Awake()
     {
         playerTr = GameObject.FindGameObjectWithTag("PLAYER")?.GetComponent<Transform>();
         monsterTr = GetComponent<Transform>();  //  monsterTr = transform;
@@ -56,9 +59,6 @@ public class MonsterCtrl : MonoBehaviour
 
         // 혈흔효과 프리팹을 로딩
         bloodEffect = Resources.Load<GameObject>("BloodEffect");
-
-        StartCoroutine(CheckMonsterState());
-        StartCoroutine(MonsterAction());
     }
 
     IEnumerator CheckMonsterState()

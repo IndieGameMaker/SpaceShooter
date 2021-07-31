@@ -158,6 +158,7 @@ public class MonsterCtrl : MonoBehaviour
         // 코루틴 강제 종료
         StopAllCoroutines();
 
+        // 오브젝트 풀링으로 되돌리는 함수호출
         Invoke("ReturnPooling", 5.0f);
     }
 

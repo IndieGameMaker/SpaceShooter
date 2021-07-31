@@ -26,10 +26,10 @@ public class MonsterCtrl : MonoBehaviour
     public bool isDie = false;
 
     // 파라메터의 해시값을 미리 추출
-    private int hashTrace = Animator.StringToHash("IsTrace");
-    private int hashAttack = Animator.StringToHash("IsAttack");
-    private int hashHit = Animator.StringToHash("Hit");
-    private int hashDie = Animator.StringToHash("Die");
+    private readonly int hashTrace = Animator.StringToHash("IsTrace");
+    private readonly int hashAttack = Animator.StringToHash("IsAttack");
+    private readonly int hashHit = Animator.StringToHash("Hit");
+    private readonly int hashDie = Animator.StringToHash("Die");
 
     private GameObject bloodEffect;
     private float hp = 100.0f;

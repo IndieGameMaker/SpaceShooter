@@ -15,6 +15,7 @@ public class MonsterCtrl : MonoBehaviour
 
     private Transform playerTr; //주인공 캐릭터의 Transform 컴포넌트를 저장할 변수
     private Transform monsterTr;
+    private NavMeshAgent agent;
 
     public float attackDist = 2.0f; // 공격 사정거리
     public float traceDist = 10.0f; // 추적 사정거리
@@ -23,14 +24,9 @@ public class MonsterCtrl : MonoBehaviour
 
     void Start()
     {
-        // GameObject playerObj = GameObject.FindGameObjectWithTag("PLAYER");
-        // if (playerObj != null)
-        // {
-        //     playerTr = playerObj.GetComponent<Transform>();
-        // }
-
         playerTr = GameObject.FindGameObjectWithTag("PLAYER")?.GetComponent<Transform>();
         monsterTr = GetComponent<Transform>();  //  monsterTr = transform;
+        agent = GetComponent<NavMeshAgent>();
 
         StartCoroutine(CheckMonsterState());
         StartCoroutine(MonsterAction());
@@ -70,6 +66,8 @@ public class MonsterCtrl : MonoBehaviour
                     break;
 
                 case State.TRACE:
+                    // 추적로직을 구동
+                    agent.SetDestination(playerTr.position);
                     break;
 
                 case State.ATTACK:

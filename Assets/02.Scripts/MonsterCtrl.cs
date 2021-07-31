@@ -32,6 +32,7 @@ public class MonsterCtrl : MonoBehaviour
         monsterTr = GetComponent<Transform>();  //  monsterTr = transform;
 
         StartCoroutine(CheckMonsterState());
+        StartCoroutine(MonsterAction());
     }
 
     IEnumerator CheckMonsterState()
@@ -56,4 +57,29 @@ public class MonsterCtrl : MonoBehaviour
             yield return new WaitForSeconds(0.3f);
         }
     }
+
+    IEnumerator MonsterAction()
+    {
+        while (!isDie)
+        {
+            switch (state)
+            {
+                case State.IDLE:
+                    // 로직
+                    break;
+
+                case State.TRACE:
+                    break;
+
+                case State.ATTACK:
+                    break;
+
+                case State.DIE:
+                    break;
+            }
+
+            yield return new WaitForSeconds(0.3f);
+        }
+    }
+
 }

@@ -25,6 +25,7 @@ public class MonsterCtrl : MonoBehaviour
 
     // 파라메터의 해시값을 미리 추출
     private int hashTrace = Animator.StringToHash("IsTrace");
+    private int hashAttack = Animator.StringToHash("IsAttack");
 
     void Start()
     {
@@ -80,9 +81,14 @@ public class MonsterCtrl : MonoBehaviour
                     agent.SetDestination(playerTr.position);
                     // Walk 애니메이션으로 변경 : Idle --> Walk
                     anim.SetBool(hashTrace, true);
+                    anim.SetBool(hashAttack, false);
                     break;
 
                 case State.ATTACK:
+                    // 추적로직을 정지
+                    agent.isStopped = true;
+                    // Attack 애니메이션으로 변경 : Walk --> Attack
+                    anim.SetBool(hashAttack, true);
                     break;
 
                 case State.DIE:

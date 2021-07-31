@@ -31,6 +31,7 @@ public class MonsterCtrl : MonoBehaviour
     private readonly int hashHit = Animator.StringToHash("Hit");
     private readonly int hashDie = Animator.StringToHash("Die");
     private readonly int hashPlayerDie = Animator.StringToHash("PlayerDie");
+    private readonly int hashAniSpeed = Animator.StringToHash("AniSpeed");
 
     private GameObject bloodEffect;
     private float hp = 100.0f;

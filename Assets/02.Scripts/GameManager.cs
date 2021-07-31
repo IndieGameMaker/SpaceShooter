@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     public float createTime = 3.0f;
     public bool isGameOver = false;
 
+    private WaitForSeconds ws;
+
     void OnEnable()
     {
         PlayerCtrl.OnPlayerDie += GameOver;
@@ -27,6 +29,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        ws = new WaitForSeconds(createTime);
+
         points = GameObject.Find("SpawnPointGroup")?.GetComponentsInChildren<Transform>();
         // InvokeRepeating("CreateMonster", 2.0f, createTime);
         StartCoroutine(CreateMonster());
@@ -41,7 +45,7 @@ public class GameManager : MonoBehaviour
             int idx = Random.Range(1, points.Length);
             Instantiate(monsterPrefab, points[idx].position, Quaternion.identity);
 
-            yield return new WaitForSeconds(createTime);
+            yield return ws;
         }
     }
 }

@@ -146,4 +146,13 @@ public class MonsterCtrl : MonoBehaviour
     {
         Debug.Log(coll.gameObject.name);
     }
+
+    public void YouWin()
+    {
+        agent.isStopped = true;
+        StopAllCoroutines();
+
+        anim.SetTrigger(hashPlayerDie);
+    }
+
 }

@@ -40,7 +40,7 @@ public class FireCtrl : MonoBehaviour
     void Fire()
     {
         // Bullet 동적으로 생성 : Instantiate(프리팹, 위치, 각도)
-        // Instantiate(bulletPrefab, firePos.position, firePos.rotation);
+        Instantiate(bulletPrefab, firePos.position, firePos.rotation);
         audio.PlayOneShot(fireSfx, 0.8f);
         StartCoroutine(ShowMuzzleFlash());
     }

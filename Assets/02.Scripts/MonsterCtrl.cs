@@ -140,4 +140,9 @@ public class MonsterCtrl : MonoBehaviour
             }
         }
     }
+
+    void OnTriggerEnter(Collider coll)
+    {
+        Debug.Log(coll.gameObject.name);
+    }
 }

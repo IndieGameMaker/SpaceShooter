@@ -12,6 +12,8 @@ public class FireCtrl : MonoBehaviour
     private new AudioSource audio;
     public MeshRenderer muzzleFlash;
 
+    private RaycastHit hit;
+
     void Start()
     {
         audio = GetComponent<AudioSource>();
@@ -27,13 +29,15 @@ public class FireCtrl : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Fire();
+
+            if (Physics.Raycast())
         }
     }
 
     void Fire()
     {
         // Bullet 동적으로 생성 : Instantiate(프리팹, 위치, 각도)
-        Instantiate(bulletPrefab, firePos.position, firePos.rotation);
+        // Instantiate(bulletPrefab, firePos.position, firePos.rotation);
         audio.PlayOneShot(fireSfx, 0.8f);
         StartCoroutine(ShowMuzzleFlash());
     }

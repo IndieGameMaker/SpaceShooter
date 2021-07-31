@@ -140,18 +140,35 @@ public class MonsterCtrl : MonoBehaviour
             hp -= 10.0f;
             if (hp <= 0.0f)
             {
-                Debug.Log("Monster Die!");
-                // 내비게이션 정지
-                agent.isStopped = true;
-                // Die 애니메이션 실행
-                anim.SetTrigger(hashDie);
-
-                GetComponent<CapsuleCollider>().enabled = false;
-
-                // 코루틴 강제 종료
-                StopAllCoroutines();
+                MonsterDie();
             }
         }
+    }
+
+    void MonsterDie()
+    {
+        Debug.Log("Monster Die!");
+        // 내비게이션 정지
+        agent.isStopped = true;
+        // Die 애니메이션 실행
+        anim.SetTrigger(hashDie);
+
+        GetComponent<CapsuleCollider>().enabled = false;
+
+        // 코루틴 강제 종료
+        StopAllCoroutines();
+
+        Invoke("ReturnPooling", 5.0f);
+    }
+
+    void ReturnPooling()
+    {
+        this.gameObject.SetActive(false);
+
+        isDie = false;
+        hp = 100.0f;
+        GetComponent<CapsuleCollider>().enabled = true;
+        state = State.IDLE;
     }
 
     void OnTriggerEnter(Collider coll)

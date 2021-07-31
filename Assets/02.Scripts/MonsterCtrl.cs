@@ -132,6 +132,9 @@ public class MonsterCtrl : MonoBehaviour
                 agent.isStopped = true;
                 // Die 애니메이션 실행
                 anim.SetTrigger(hashDie);
+
+                GetComponent<CapsuleCollider>().enabled = false;
+
                 // 코루틴 강제 종료
                 StopAllCoroutines();
             }

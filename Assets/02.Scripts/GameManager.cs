@@ -5,6 +5,25 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public Transform[] points;
+    public GameObject monsterPrefab;
+
+    public float createTime = 3.0f;
+    public bool isGameOver = false;
+
+    void OnEnable()
+    {
+        PlayerCtrl.OnPlayerDie += GameOver;
+    }
+
+    void OnDisable()
+    {
+        PlayerCtrl.OnPlayerDie -= GameOver;
+    }
+
+    void GameOver()
+    {
+        isGameOver = true;
+    }
 
     void Start()
     {

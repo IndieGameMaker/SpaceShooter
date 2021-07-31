@@ -37,8 +37,7 @@ public class GameManager : MonoBehaviour
         points = GameObject.Find("SpawnPointGroup")?.GetComponentsInChildren<Transform>();
 
         CreatePooling();
-        // InvokeRepeating("CreateMonster", 2.0f, createTime);
-        // StartCoroutine(CreateMonster());
+        StartCoroutine(CreateMonster());
     }
 
     void CreatePooling()
@@ -61,8 +60,18 @@ public class GameManager : MonoBehaviour
 
         while (!isGameOver)
         {
-            int idx = Random.Range(1, points.Length);
-            Instantiate(monsterPrefab, points[idx].position, Quaternion.identity);
+            // 몬스터 풀링에서 검색해서 활성화 시키는 로직
+            foreach (var monster in monsterPool)
+            {
+                if (monster.activeSelf == false)
+                {
+                    int idx = Random.Range(1, points.Length);
+                    monster.transform.position = points[idx].position;
+                    monster.transform.rotation = Quaternion.LookRotation(points[0].position - points[idx].position);
+                    monster.SetActive(true);
+                    break;
+                }
+            }
 
             yield return ws;
         }

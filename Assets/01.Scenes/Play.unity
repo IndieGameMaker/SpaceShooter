@@ -903,6 +903,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89f378faf6f664c00884336296669ec0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  monsterPool: []
+  maxPool: 10
   points: []
   monsterPrefab: {fileID: 1505591760638383998, guid: 6bc16bc3803d54f3ba0fcf6f61598639, type: 3}
   createTime: 3

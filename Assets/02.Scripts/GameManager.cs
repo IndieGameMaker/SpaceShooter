@@ -28,12 +28,20 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         points = GameObject.Find("SpawnPointGroup")?.GetComponentsInChildren<Transform>();
-        InvokeRepeating("CreateMonster", 2.0f, createTime);
+        // InvokeRepeating("CreateMonster", 2.0f, createTime);
+        StartCoroutine(CreateMonster());
     }
 
-    void CreateMonster()
+    IEnumerator CreateMonster()
     {
-        int idx = Random.Range(1, points.Length);
-        Instantiate(monsterPrefab, points[idx].position, Quaternion.identity);
+        yield return new WaitForSeconds(2.0f);
+
+        while (!isGameOver)
+        {
+            int idx = Random.Range(1, points.Length);
+            Instantiate(monsterPrefab, points[idx].position, Quaternion.identity);
+
+            yield return new WaitForSeconds(createTime);
+        }
     }
 }

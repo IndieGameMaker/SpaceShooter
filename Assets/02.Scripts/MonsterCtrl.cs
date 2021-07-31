@@ -30,12 +30,17 @@ public class MonsterCtrl : MonoBehaviour
     private int hashAttack = Animator.StringToHash("IsAttack");
     private int hashHit = Animator.StringToHash("Hit");
 
+    [SerializeField] private GameObject bloodEffect;
+
     void Start()
     {
         playerTr = GameObject.FindGameObjectWithTag("PLAYER")?.GetComponent<Transform>();
         monsterTr = GetComponent<Transform>();  //  monsterTr = transform;
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
+
+        // 혈흔효과 프리팹을 로딩
+        bloodEffect = Resources.Load<GameObject>("BloodEffect");
 
         StartCoroutine(CheckMonsterState());
         StartCoroutine(MonsterAction());

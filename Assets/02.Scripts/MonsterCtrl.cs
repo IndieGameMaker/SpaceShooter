@@ -29,8 +29,10 @@ public class MonsterCtrl : MonoBehaviour
     private int hashTrace = Animator.StringToHash("IsTrace");
     private int hashAttack = Animator.StringToHash("IsAttack");
     private int hashHit = Animator.StringToHash("Hit");
+    private int hashDie = Animator.StringToHash("Die");
 
-    [SerializeField] private GameObject bloodEffect;
+    private GameObject bloodEffect;
+    private float hp = 100.0f;
 
     void Start()
     {
@@ -113,10 +115,26 @@ public class MonsterCtrl : MonoBehaviour
         {
             Destroy(coll.gameObject);
             anim.SetTrigger(hashHit);
+            // 총알의 충돌 좌표
             Vector3 pos = coll.GetContact(0).point;
+            // 법선벡터를 Quaternion 타입으로 변환
             Quaternion rot = Quaternion.LookRotation(-coll.GetContact(0).normal);
+            // 혈흔 효과 생성
             GameObject blood = Instantiate(bloodEffect, pos, rot);
-            Destroy(blood, 0.8f);
+            Destroy(blood, 0.5f);
+
+            // HP 차감
+            hp -= 10.0f;
+            if (hp <= 0.0f)
+            {
+                Debug.Log("Monster Die!");
+                // 내비게이션 정지
+                agent.isStopped = true;
+                // Die 애니메이션 실행
+                anim.SetTrigger(hashDie);
+                // 코루틴 강제 종료
+                StopAllCoroutines();
+            }
         }
     }
 }

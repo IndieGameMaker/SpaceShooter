@@ -27,6 +27,7 @@ public class PlayerCtrl : MonoBehaviour
     public float moveSpeed = 8.0f;
     [Range(100.0f, 200.0f)]
     public float turnSpeed = 200.0f;
+    private float _turnSpeed;
 
     // Animation 컴포넌트를 저장할 변수를 선언
     [HideInInspector]      // Unity Atrributes
@@ -34,13 +35,15 @@ public class PlayerCtrl : MonoBehaviour
     public Animation anim;
 
     // Start is called before the first frame update
-    void Start()
+    IEnumerator Start()
     {
-        anim = GetComponent<Animation>(); //Generic Syntax
-        //anim = this.gameObject.GetComponent("Animation") as Animation
-        //anim = (Animation)this.gameObject.GetComponent("Animation")
+        _turnSpeed = 0.0f;
 
+        anim = GetComponent<Animation>(); //Generic Syntax
         anim.Play("Idle");
+
+        yield return new WaitForSeconds(0.5f);
+        _turnSpeed = turnSpeed;
     }
 
     // Update is called once per fram
@@ -53,7 +56,7 @@ public class PlayerCtrl : MonoBehaviour
         Vector3 dir = (Vector3.forward * v) + (Vector3.right * h);
 
         transform.Translate(dir.normalized * Time.deltaTime * moveSpeed);
-        transform.Rotate(Vector3.up * Time.deltaTime * turnSpeed * r);
+        transform.Rotate(Vector3.up * Time.deltaTime * _turnSpeed * r);
 
         PlayerAnim();
     }

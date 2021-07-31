@@ -1558,6 +1558,20 @@ NavMeshAgent:
   m_BaseOffset: -0.08
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!136 &1102729282
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1102729279}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!4 &1137640172 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4882308743312232075, guid: a9ee2a8b5a8064050a55c46e7e3a5d30, type: 3}

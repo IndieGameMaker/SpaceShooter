@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public List<GameObject> monsterPool = new List<GameObject>();
+    public int maxPool = 10;
+
     public Transform[] points;
     public GameObject monsterPrefab;
 
@@ -49,3 +52,8 @@ public class GameManager : MonoBehaviour
         }
     }
 }
+
+/*
+    오브젝트 풀링 (Object Pooling)
+
+*/

@@ -22,6 +22,9 @@ public class PlayerCtrl : MonoBehaviour
     private float initHp = 100.0f;  // 주인공 캐릭터의 초기 생명치
     public float currHp = 100.0f;   // 현재의 생명치 currHp/initHp
 
+    public delegate void PlayerDieHandler();  // 델리게이트는 함수를 저장할 수 있는 데이터 타입
+    public static event PlayerDieHandler OnPlayerDie; // 이벤트를 정의
+
     // Start is called before the first frame update
     IEnumerator Start()
     {
@@ -94,12 +97,17 @@ public class PlayerCtrl : MonoBehaviour
     void PlayerDie()
     {
         Debug.Log("주인공 사망 !!!");
-        // MONSTER 태그로 설정된 몬스터를 배열 저장
-        GameObject[] monsters = GameObject.FindGameObjectsWithTag("MONSTER");
-        foreach (GameObject monster in monsters)
-        {
-            // monster.GetComponent<MonsterCtrl>().YouWin();
-            monster.SendMessage("YouWin", SendMessageOptions.DontRequireReceiver);
-        }
+
+        // 이벤트 발생(Raise)
+        OnPlayerDie();
+
+        // // MONSTER 태그로 설정된 몬스터를 배열 저장
+        // GameObject[] monsters = GameObject.FindGameObjectsWithTag("MONSTER");
+
+        // foreach (GameObject monster in monsters)
+        // {
+        //     // monster.GetComponent<MonsterCtrl>().YouWin();
+        //     monster.SendMessage("YouWin", SendMessageOptions.DontRequireReceiver);
+        // }
     }
 }

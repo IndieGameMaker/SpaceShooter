@@ -35,6 +35,17 @@ public class MonsterCtrl : MonoBehaviour
     private GameObject bloodEffect;
     private float hp = 100.0f;
 
+    void OnEnable()
+    {
+        // 특정 이벤트를 연결할 때 사용
+        PlayerCtrl.OnPlayerDie += this.YouWin;
+    }
+
+    void OnDisable()
+    {
+        PlayerCtrl.OnPlayerDie -= this.YouWin;
+    }
+
     void Start()
     {
         playerTr = GameObject.FindGameObjectWithTag("PLAYER")?.GetComponent<Transform>();

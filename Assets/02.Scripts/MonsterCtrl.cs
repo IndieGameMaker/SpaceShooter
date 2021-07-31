@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
+using UnityEngine.AI; // Navigation을 사용하기위해서 추가해야하는 네임스페이스
 
 public class MonsterCtrl : MonoBehaviour
 {

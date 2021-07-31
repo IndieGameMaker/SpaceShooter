@@ -137,7 +137,7 @@ public class MonsterCtrl : MonoBehaviour
             Destroy(blood, 0.5f);
 
             // HP 차감
-            hp -= 10.0f;
+            hp -= 25.0f;
             if (hp <= 0.0f)
             {
                 MonsterDie();

@@ -62,11 +62,13 @@ public class MonsterCtrl : MonoBehaviour
             switch (state)
             {
                 case State.IDLE:
-                    // 로직
+                    // 정지
+                    agent.isStopped = true;
                     break;
 
                 case State.TRACE:
                     // 추적로직을 구동
+                    agent.isStopped = false;
                     agent.SetDestination(playerTr.position);
                     break;
 

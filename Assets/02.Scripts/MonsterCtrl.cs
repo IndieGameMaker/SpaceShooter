@@ -1,3 +1,5 @@
+#pragma warning disable IDE0051
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,6 +28,7 @@ public class MonsterCtrl : MonoBehaviour
     // 파라메터의 해시값을 미리 추출
     private int hashTrace = Animator.StringToHash("IsTrace");
     private int hashAttack = Animator.StringToHash("IsAttack");
+    private int hashHit = Animator.StringToHash("Hit");
 
     void Start()
     {
@@ -99,4 +102,12 @@ public class MonsterCtrl : MonoBehaviour
         }
     }
 
+    void OnCollisionEnter(Collision coll)
+    {
+        if (coll.collider.CompareTag("BULLET"))
+        {
+            Destroy(coll.gameObject);
+            anim.SetTrigger(hashHit);
+        }
+    }
 }

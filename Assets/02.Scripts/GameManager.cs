@@ -80,5 +80,5 @@ public class GameManager : MonoBehaviour
 
 /*
     오브젝트 풀링 (Object Pooling)
-
+    GI
 */

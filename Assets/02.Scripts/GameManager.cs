@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
         {
             score += value;
             scoreText.text = $"<color=#ff0000>Score :</color> <color=#00ff00>{score:00000}</color>";
+            PlayerPrefs.SetFloat("SCORE", score);
         }
     }
 
@@ -69,6 +70,9 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        // 기존에 저장된 데이터를 로드
+        this.Score = PlayerPrefs.GetFloat("SCORE", 0.0f);
+
         ws = new WaitForSeconds(createTime);
 
         points = GameObject.Find("SpawnPointGroup")?.GetComponentsInChildren<Transform>();

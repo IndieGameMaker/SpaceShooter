@@ -1891,6 +1891,7 @@ MonoBehaviour:
   createTime: 3
   isGameOver: 0
   scoreText: {fileID: 341463429}
+  score: 0
 --- !u!4 &690025652
 Transform:
   m_ObjectHideFlags: 0

@@ -160,7 +160,7 @@ public class MonsterCtrl : MonoBehaviour
         // GameObject.Find("GameManager").GetComponent<GameManager>().score += 50.0f;
         // gameManager.score += 50.0f;
         // 싱글턴으로 접근하는 방식
-        GameManager.instance.score += 50.0f;
+        GameManager.instance.Score = 50.0f;
 
         // 내비게이션 정지
         agent.isStopped = true;

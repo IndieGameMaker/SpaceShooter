@@ -22,7 +22,18 @@ public class GameManager : MonoBehaviour
 
     public TMP_Text scoreText;
 
-    public float score;
+    private float score; // 멤버 변수
+
+    // 스코어 프로퍼티를 선언 (public 타입 프로퍼티명)
+    public float Score
+    {
+        get { return score; }
+        set
+        {
+            score += value;
+            scoreText.text = $"Score : {score:00000}";
+        }
+    }
 
     private WaitForSeconds ws;
 

@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
 
     public TMP_Text scoreText;
 
+    private float score;
+
     private WaitForSeconds ws;
 
     void OnEnable()

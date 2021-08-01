@@ -22,6 +22,7 @@ public class PlayerCtrl : MonoBehaviour
 
     private float initHp = 100.0f;  // 주인공 캐릭터의 초기 생명치
     public float currHp = 100.0f;   // 현재의 생명치 currHp/initHp
+    public Image hpBar;
 
     public delegate void PlayerDieHandler();  // 델리게이트는 함수를 저장할 수 있는 데이터 타입
     public static event PlayerDieHandler OnPlayerDie; // 이벤트를 정의

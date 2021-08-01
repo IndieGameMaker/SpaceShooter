@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
         set
         {
             score += value;
-            scoreText.text = $"Score : {score:00000}";
+            scoreText.text = $"<color=#ff0000>Score :</color> <color=#00ff00>{score:00000}</color>";
         }
     }
 

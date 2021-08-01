@@ -7,7 +7,7 @@ public class UIManager : MonoBehaviour
 {
     public void OnStartButtonClick()
     {
-        Debug.Log("버튼 클릭");
-        SceneManager.LoadScene("Play");
+        SceneManager.LoadScene("Level_01");
+        SceneManager.LoadScene("Play", LoadSceneMode.Additive);
     }
 }

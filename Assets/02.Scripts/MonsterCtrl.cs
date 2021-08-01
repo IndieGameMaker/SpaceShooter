@@ -151,6 +151,10 @@ public class MonsterCtrl : MonoBehaviour
     void MonsterDie()
     {
         Debug.Log("Monster Die!");
+
+        // 점수를 누적
+        GameObject.Find("GameManager").GetComponent<GameManager>().score += 50.0f;
+
         // 내비게이션 정지
         agent.isStopped = true;
         // Die 애니메이션 실행

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro; // TextMesh Pro 네임스페이스
 
 public class GameManager : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class GameManager : MonoBehaviour
 
     public float createTime = 3.0f;
     public bool isGameOver = false;
+
+    public TMP_Text scoreText;
 
     private WaitForSeconds ws;
 

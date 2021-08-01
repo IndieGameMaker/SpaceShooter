@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI; // Unity UI에 접근하기 위한 네임스페이스
 
 public class PlayerCtrl : MonoBehaviour
 {

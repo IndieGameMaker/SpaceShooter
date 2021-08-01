@@ -3,8 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro; // TextMesh Pro 네임스페이스
 
+/*
+    Singleton 싱글턴(싱글톤)
+*/
+
 public class GameManager : MonoBehaviour
 {
+    public static GameManager instance = null;
+
     public List<GameObject> monsterPool = new List<GameObject>();
     public int maxPool = 10;
 
@@ -19,6 +25,21 @@ public class GameManager : MonoBehaviour
     public float score;
 
     private WaitForSeconds ws;
+
+    void Awake()
+    {
+        //instance = this;
+
+        if (instance == null)   // 처음 실행여부를 판단
+        {
+            instance = this;
+        }
+        else if (instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        DontDestroyOnLoad(this.gameObject);
+    }
 
     void OnEnable()
     {

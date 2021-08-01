@@ -36,6 +36,8 @@ public class MonsterCtrl : MonoBehaviour
     private GameObject bloodEffect;
     private float hp = 100.0f;
 
+    private GameManager gameManager;
+
     void OnEnable()
     {
         // 특정 이벤트를 연결할 때 사용
@@ -59,6 +61,8 @@ public class MonsterCtrl : MonoBehaviour
 
         // 혈흔효과 프리팹을 로딩
         bloodEffect = Resources.Load<GameObject>("BloodEffect");
+        // GameManager 를 할당
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     IEnumerator CheckMonsterState()
@@ -153,7 +157,10 @@ public class MonsterCtrl : MonoBehaviour
         Debug.Log("Monster Die!");
 
         // 점수를 누적
-        GameObject.Find("GameManager").GetComponent<GameManager>().score += 50.0f;
+        // GameObject.Find("GameManager").GetComponent<GameManager>().score += 50.0f;
+        // gameManager.score += 50.0f;
+        // 싱글턴으로 접근하는 방식
+        GameManager.instance.score += 50.0f;
 
         // 내비게이션 정지
         agent.isStopped = true;
